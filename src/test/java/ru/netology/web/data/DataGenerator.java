@@ -1,11 +1,7 @@
 package ru.netology.web.data;
 
-import com.github.javafaker.CreditCardType;
 import com.github.javafaker.Faker;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.Value;
-import lombok.val;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -59,14 +55,12 @@ public class DataGenerator {
         public static UserInfo generateUser() {
             Faker faker = new Faker(new Locale("ru"));
             return new UserInfo(getRandomCity(),
-                    faker.name().lastName() + " " + faker.name().firstName(),
+                    faker.name().fullName(),
                     faker.phoneNumber().phoneNumber());
         }
-
     }
 
     @Value
-    @Data
     public static class UserInfo {
         String city;
         String name;
